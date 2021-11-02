@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Jiayi Chen</title>
+  </head>
+  <body>
+    <h1>Hi, my name is Jiayi Chen! In my free time, I like reading, cooking and watching movie.</h1>
+    <h2>The current time is: <span id='ct'></span></h2>
+
+
+    <script type="text/javascript">
+      function display_c(){
+        var refresh=1000;
+        mytime=setTimeout('display_ct()',refresh)
+      }
+      function display_ct() {
+        var date = new Date();
+        var hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
+        hours = hours < 10 ? "0" + hours : hours;
+        var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+        time = hours + ":" + minutes + ":" + seconds ;
+        var currTime = document.getElementById("ct");
+        currTime.innerHTML = time;
+        display_c();
+      }
+    </script>
+    <body onload=display_ct();>
+
+  </body>
+</html>
